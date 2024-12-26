@@ -38,3 +38,6 @@ out/
 
 ### DB ###
 application-db.properties
+
+### mics ###
+.DS_Store
