@@ -14,8 +14,8 @@ public class CulturalEventService {
     CulturalEventRepository culturalEventRepository;
 
     public List<CulturalEventEntity> getEventList(String district) {
-        return culturalEventRepository.findByEndDateAfterAndDistrict(LocalDate.now(), district).stream().limit(10).toList();
-//        return culturalEventRepository.findByEndDateAfterAndDistrict(LocalDate.now(), district);
+//        return culturalEventRepository.findByEndDateAfterAndDistrict(LocalDate.now(), district).stream().limit(10).toList();
+        return culturalEventRepository.findByEndDateAfterAndDistrict(LocalDate.now(), district);
 
     }
 }
