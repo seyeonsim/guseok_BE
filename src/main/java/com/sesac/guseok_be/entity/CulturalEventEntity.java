@@ -44,15 +44,18 @@ public class CulturalEventEntity {
     @Column(length = 1000)
     private String main_img;
 
-    private LocalDate start_date;
+    @Column(name = "start_date")
+    private LocalDate startDate;
 
-    private LocalDate end_date;
+    @Column(name = "end_date")
+    private LocalDate endDate;
 
-    private String lot;
+    private Double lot;
 
-    private String lat;
+    private Double lat;
 
-    private String is_free;
+    @Column(name = "is_free")
+    private String isFree;
 
     private String hmpg_addr;
 
