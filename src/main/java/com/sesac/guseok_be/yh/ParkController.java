@@ -1,30 +1,35 @@
 package com.sesac.guseok_be.yh;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/parks")
+@RequestMapping("/park")
 @RequiredArgsConstructor
 public class ParkController {
 
-    @Autowired
-    private ParkService parkService;
+    private final ParkService parkService;
 
+    // 모든 공원 데이터 조회
     @GetMapping
     public List<ParkEntity> getAllParks() {
         return parkService.getAllParks();
     }
 
+    // 특정 지역의 공원 데이터 조회
     @GetMapping("/by-district")
     public List<ParkEntity> getParksByDistrict(@RequestParam String district) {
         return parkService.getParksByDistrict(district);
     }
-}
 
+    // 특정 ID의 공원 데이터 조회
+    @GetMapping("/{id}")
+    public ResponseEntity<ParkEntity> getParkById(@PathVariable("id") Long id) { // "id" 명시
+        return parkService.findParkById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+}
