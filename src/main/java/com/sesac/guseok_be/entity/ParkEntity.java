@@ -1,4 +1,4 @@
-package com.sesac.guseok_be.yh;
+package com.sesac.guseok_be.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
