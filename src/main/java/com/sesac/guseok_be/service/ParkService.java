@@ -1,5 +1,7 @@
-package com.sesac.guseok_be.yh;
+package com.sesac.guseok_be.service;
 
+import com.sesac.guseok_be.entity.ParkEntity;
+import com.sesac.guseok_be.repository.ParkRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

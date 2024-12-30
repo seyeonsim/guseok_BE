@@ -1,4 +1,4 @@
-package com.sesac.guseok_be.yh;
+package com.sesac.guseok_be.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

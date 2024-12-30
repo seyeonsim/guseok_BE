@@ -1,5 +1,7 @@
-package com.sesac.guseok_be.yh;
+package com.sesac.guseok_be.controller;
 
+import com.sesac.guseok_be.entity.ParkEntity;
+import com.sesac.guseok_be.service.ParkService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
