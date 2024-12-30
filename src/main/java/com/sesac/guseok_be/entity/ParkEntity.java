@@ -15,10 +15,12 @@ public class ParkEntity {
     private String name;
     private String district;
     private String address;
+    @Column(length = 4000)
     private String information;
     private String image;
     private String map;
     private String area;
+    @Column(length = 2000)
     private String facility;
     private String phone;
     private Double longitude;
