@@ -8,43 +8,41 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-@Controller
-@RequestMapping("/smoking/*")
+@RestController
+@RequestMapping("/api/smoking/")
 public class SmokingController {
     @Autowired
     private SmokingService smokingService;
 
     @GetMapping("/")
-    public String home(Model model) {
-        model.addAttribute("districts", smokingService.getDistinctDistricts());
+    public Map<String, Object> home() {
+        Map<String, Object> response = new HashMap<>();
+        response.put("districts", smokingService.getDistinctDistricts());
         List<Smoking> smokingAreas = smokingService.getAllData();
-        model.addAttribute("smokingAreas", smokingAreas != null ? smokingAreas : Collections.emptyList());
-        return "index";
+        response.put("smokingAreas", smokingAreas != null ? smokingAreas : Collections.emptyList());
+
+        return response;
     }
 
     @GetMapping("/district")
-    public String getDistinctDistricts(@RequestParam(name = "districts", defaultValue = "default") String district, Model model) {
+    public Map<String, Object> getDistinctDistricts(@RequestParam(name = "districts", defaultValue = "default") String district) {
+        Map<String, Object> response = new HashMap<>();
         List<Smoking> smokingAreas;
         if (district != "default") {
             smokingAreas = smokingService.getDataByDistrict(district);
         } else {
             smokingAreas = smokingService.getAllData();
         }
-        model.addAttribute("smokingAreas", smokingAreas);
-        model.addAttribute("districts", smokingService.getDistinctDistricts());
+        response.put("smokingAreas", smokingAreas);
+        response.put("districts", smokingService.getDistinctDistricts());
 
-        return "index";
-    }
-
-    @GetMapping("/reset")
-    public String reset(Model model) {
-        model.addAttribute("districts", smokingService.getDistinctDistricts());
-        List<Smoking> smokingAreas = smokingService.getAllData();
-        model.addAttribute("smokingAreas", smokingAreas != null ? smokingAreas : Collections.emptyList());
-        return "redirect:/";
+        return response;
     }
 }
