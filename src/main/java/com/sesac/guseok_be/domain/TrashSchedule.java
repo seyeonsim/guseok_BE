@@ -36,7 +36,7 @@ public class TrashSchedule {
     @Column(name="EMISSIONTIME")
     private String emissionTime;
 
-    @Column(name="HOMPAGE")
+    @Column(name="HOMEPAGE")
     private String homepage;
 
     public TrashSchedule() {}
