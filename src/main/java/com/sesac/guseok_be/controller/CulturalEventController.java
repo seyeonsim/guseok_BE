@@ -19,8 +19,8 @@ public class CulturalEventController {
     CulturalEventService culturalEventService;
 
     @GetMapping("/event")
-    public List<CulturalEventEntity> getEventList(@RequestParam String district) {
-        return culturalEventService.getEventList(district);
+    public List<CulturalEventEntity> getEventList(@RequestParam String district, @RequestParam(required = false) Integer limit) {
+        return culturalEventService.getEventList(district, limit);
     }
 
 }

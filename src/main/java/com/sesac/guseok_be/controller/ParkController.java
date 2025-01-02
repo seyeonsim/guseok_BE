@@ -34,4 +34,9 @@ public class ParkController {
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
+
+    @GetMapping("/list")
+    public  List<ParkEntity> getMainPark(@RequestParam String district, @RequestParam(required = false) Integer limit) {
+        return parkService.findMainPark(district, limit);
+    }
 }
