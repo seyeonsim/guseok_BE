@@ -3,9 +3,6 @@ package com.sesac.guseok_be.service;
 import com.sesac.guseok_be.domain.User;
 import com.sesac.guseok_be.domain.UserDTO;
 import com.sesac.guseok_be.repository.UserEditRepository;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
