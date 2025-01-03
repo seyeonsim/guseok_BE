@@ -25,19 +25,33 @@ public class WebSecurityConfig {
 
     private final UserDetailService userService;
 
-    @Bean
-    public WebSecurityCustomizer configure() {
-        return (web) -> web.ignoring()
-                .requestMatchers(new AntPathRequestMatcher("/static/**"));
-    }
+//    @Bean
+//    public WebSecurityCustomizer configure() {
+//        return (web) -> web.ignoring()
+//                .requestMatchers(new AntPathRequestMatcher("/static/**"));
+//    }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
-                .cors(cors -> cors.configurationSource(corsConfigurationSource())) // CORS 설정 추가
                 .csrf(AbstractHttpConfigurer::disable) // CSRF 비활성화
+                .cors(cors -> cors.configurationSource(corsConfigurationSource())) // CORS 설정 추가
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/**", "/api/signup", "/api/login", "/api/logout", "main/**", "cultural/**", "park/**", "/api/smoking/**", "/api/trash/**", "/api/nosmoking/**", "/api/mypage/**", "/api/districts/**").permitAll()
+                        .requestMatchers(
+                                "/api/**",
+                                "/api/signup",
+                                "/api/login",
+                                "/api/logout",
+                                "main/**",
+                                "cultural/**",
+                                "park/**",
+                                "comment",
+                                "/comment/**",
+                                "/api/smoking/**",
+                                "/api/trash/**",
+                                "/api/nosmoking/**",
+                                "/api/mypage/**",
+                                "/api/districts/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(AbstractHttpConfigurer::disable) // 폼 로그인 비활성화
