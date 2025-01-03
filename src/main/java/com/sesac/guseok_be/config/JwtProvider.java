@@ -18,7 +18,7 @@ import java.util.Date;
 @Component
 public class JwtProvider {
     private final Key SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS512); // Key 타입으로 설정
-    private final long EXPIRATION_TIME = 86400000; // 1일
+    private final long EXPIRATION_TIME = 30 * 60 * 1000; // 30분
     private final UserDetailsService userDetailsService;
 
     public JwtProvider(@Qualifier("userDetailService") UserDetailsService userDetailsService) {
