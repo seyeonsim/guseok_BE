@@ -37,7 +37,7 @@ public class WebSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable) // CSRF 비활성화
                 .cors(cors -> cors.configurationSource(corsConfigurationSource())) // CORS 설정 추가
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(/**",
+                        .requestMatchers("/api/**",
                                 "/api/signup",
                                 "/api/login",
                                 "/api/logout",
