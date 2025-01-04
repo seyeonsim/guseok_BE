@@ -50,7 +50,8 @@ public class WebSecurityConfig {
                                 "/api/trash/**",
                                 "/api/nosmoking/**",
                                 "/api/mypage/**",
-                                "/api/districts/**").permitAll()
+                                "/api/districts/**"
+                                ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(AbstractHttpConfigurer::disable) // 폼 로그인 비활성화
@@ -70,7 +71,11 @@ public class WebSecurityConfig {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(HttpSecurity http, BCryptPasswordEncoder bCryptPasswordEncoder, UserDetailService userDetailService) throws Exception {
+    public AuthenticationManager authenticationManager(
+            HttpSecurity http,
+            BCryptPasswordEncoder bCryptPasswordEncoder,
+            UserDetailService userDetailService
+    ) throws Exception {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         authProvider.setUserDetailsService(userService);
         authProvider.setPasswordEncoder(bCryptPasswordEncoder);
