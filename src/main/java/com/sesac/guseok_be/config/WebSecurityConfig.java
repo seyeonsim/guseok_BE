@@ -37,21 +37,19 @@ public class WebSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable) // CSRF 비활성화
                 .cors(cors -> cors.configurationSource(corsConfigurationSource())) // CORS 설정 추가
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/**",
+                        .requestMatchers(
                                 "/api/signup",
                                 "/api/login",
                                 "/api/logout",
-                                "main/**",
-                                "cultural/**",
-                                "park/**",
-                                "comment",
-                                "/comment/**",
+                                "/api/event/**",
+                                "/park/**",
                                 "/api/smoking/**",
                                 "/api/trash/**",
                                 "/api/nosmoking/**",
                                 "/api/mypage/**",
-                                "/api/districts/**"
-                                ).permitAll()
+                                "/api/districts/**",
+                                "/api/like/**").permitAll()
+                        // .requestMatchers("/api/like/**").authenticated()
                         .anyRequest().authenticated()
                 )
                 .formLogin(AbstractHttpConfigurer::disable) // 폼 로그인 비활성화
