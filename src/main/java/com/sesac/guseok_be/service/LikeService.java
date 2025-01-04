@@ -42,4 +42,14 @@ public class LikeService {
         return "좋아요 왼료됨";
 
     }
+
+    public boolean checkIfLiked(String email, String targetType, Long targetId) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다."));
+
+        // 이미 좋아요를 눌렀는지 확인
+        LikeEntity existingLike = likeRepository.findByUserIdAndTargetTypeAndTargetId(
+                user.getId(), targetType, targetId).orElse(null);
+        return existingLike != null;
+    }
 }
