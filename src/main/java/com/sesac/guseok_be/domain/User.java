@@ -1,5 +1,7 @@
 package com.sesac.guseok_be.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sesac.guseok_be.entity.LikeEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -38,6 +40,10 @@ public class User implements UserDetails {
 
     @Column(name = "district", nullable = false)
     private String district;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<LikeEntity> likes;
 
     @Builder
     public User(String email, String password, String name, LocalDate birth, String gender, String district) {
