@@ -43,12 +43,14 @@ public class WebSecurityConfig {
                                 "/api/logout",
                                 "/api/event/**",
                                 "/park/**",
+                                "/userinfo/**",
                                 "/api/smoking/**",
                                 "/api/trash/**",
                                 "/api/nosmoking/**",
                                 "/api/mypage/**",
                                 "/api/districts/**",
-                                "/api/like/**").permitAll()
+                                "/api/like/**",
+                                "/api/userinfo").permitAll()
                         // .requestMatchers("/api/like/**").authenticated()
                         .anyRequest().authenticated()
                 )
