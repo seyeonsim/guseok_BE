@@ -39,7 +39,7 @@ public class LikeService {
                 .build();
 
         likeRepository.save(like);
-        return "좋아요 왼료됨";
+        return "좋아요 완료됨";
 
     }
 
