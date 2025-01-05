@@ -1,7 +1,6 @@
 package com.sesac.guseok_be.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sesac.guseok_be.entity.LikeEntity;
+import com.sesac.guseok_be.entity.ParkEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -9,6 +8,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -41,9 +41,14 @@ public class User implements UserDetails {
     @Column(name = "district", nullable = false)
     private String district;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    @JsonIgnore
-    private List<LikeEntity> likes;
+    // 좋아요한 공원을 연결하기 위한 ManyToMany 관계
+    @ManyToMany
+    @JoinTable(
+            name = "users_liked_parks", // 중간 테이블 이름
+            joinColumns = @JoinColumn(name = "user_id"), // User의 FK
+            inverseJoinColumns = @JoinColumn(name = "park_id") // Park의 FK
+    )
+    private List<ParkEntity> likedParks = new ArrayList<>();
 
     @Builder
     public User(String email, String password, String name, LocalDate birth, String gender, String district) {
@@ -69,6 +74,7 @@ public class User implements UserDetails {
     public String getPassword() {
         return password;
     }
+
     @Override
     public boolean isAccountNonExpired() {
         return true;

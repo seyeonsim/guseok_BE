@@ -50,7 +50,8 @@ public class WebSecurityConfig {
                                 "/api/mypage/**",
                                 "/api/districts/**",
                                 "/api/like/**",
-                                "/api/userinfo").permitAll()
+                                "/api/userinfo",
+                                "/api/mypage/likedParks").permitAll()
                         // .requestMatchers("/api/like/**").authenticated()
                         .anyRequest().authenticated()
                 )
