@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
+@Repository // 작성자 : 박유현
 public interface ParkRepository extends JpaRepository<ParkEntity, Long> {
     List<ParkEntity> findByDistrict(String district);
     List<ParkEntity> findByLikedUsersId(Long userId);

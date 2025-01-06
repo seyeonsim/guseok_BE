@@ -6,7 +6,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 
-@Getter
+@Getter // 작성자 : 박유현
 @Setter
 @NoArgsConstructor
 public class AddUserRequest {

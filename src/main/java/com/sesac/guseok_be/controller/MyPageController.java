@@ -19,6 +19,7 @@ import java.util.List;
 
 //작성자: 박유현;
 @RestController
+@RestController
 @RequestMapping("/api/mypage")
 @RequiredArgsConstructor
 @Slf4j

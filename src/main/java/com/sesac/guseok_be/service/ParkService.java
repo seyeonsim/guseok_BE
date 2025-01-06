@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+@Service // 작성자 : 박유현
 public class ParkService {
 
     @Autowired

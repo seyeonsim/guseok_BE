@@ -3,7 +3,7 @@ package com.sesac.guseok_be.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@Controller
+@Controller // 작성자 : 박유현
 public class UserViewController {
     @GetMapping("/login")
     public String login() {

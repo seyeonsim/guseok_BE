@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
-@RequiredArgsConstructor
+@RequiredArgsConstructor // 작성자 : 박유현
 @Service
 public class UserDetailService implements UserDetailsService {
     private final UserRepository userRepository;
