@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@RestController // 작성자 : 박유현
 @RequestMapping("/park")
 @RequiredArgsConstructor
 public class ParkController {
