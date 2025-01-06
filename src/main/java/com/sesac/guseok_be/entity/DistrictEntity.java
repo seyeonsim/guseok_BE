@@ -7,6 +7,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+// 작성자 : 심세연
+
 @Data
 @Entity
 @Table(name = "district")
