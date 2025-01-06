@@ -1,5 +1,7 @@
 package com.sesac.guseok_be.domain;
 
+//작성자: 윤정연;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import lombok.Getter;

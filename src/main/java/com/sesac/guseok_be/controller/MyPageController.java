@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController // 작성자 : 박유현
+//작성자: 박유현;
+@RestController
+@RestController
 @RequestMapping("/api/mypage")
 @RequiredArgsConstructor
 @Slf4j
@@ -45,6 +47,8 @@ public class MyPageController {
         List<ParkEntity> likedParks = parkLikeService.getLikedParks(user.getEmail());
         return ResponseEntity.ok(likedParks);
     }
+
+    //작성자: 윤정연;
 
     @GetMapping("/likedSmoking")
     public ResponseEntity<List<Smoking>> getLikedSmoking(HttpServletRequest request) {

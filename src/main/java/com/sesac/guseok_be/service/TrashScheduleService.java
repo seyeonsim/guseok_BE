@@ -1,5 +1,7 @@
 package com.sesac.guseok_be.service;
 
+//작성자: 윤정연;
+
 import com.sesac.guseok_be.domain.TrashSchedule;
 import com.sesac.guseok_be.repository.TrashScheduleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
