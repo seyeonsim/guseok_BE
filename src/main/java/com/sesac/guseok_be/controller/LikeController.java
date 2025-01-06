@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+// 작성자 : 심세연
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/like")

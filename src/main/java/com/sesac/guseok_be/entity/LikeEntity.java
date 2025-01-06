@@ -16,6 +16,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+// 작성자 : 심세연
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

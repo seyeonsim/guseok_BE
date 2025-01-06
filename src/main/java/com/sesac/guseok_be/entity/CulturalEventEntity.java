@@ -8,9 +8,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
-import java.util.Date;
 import lombok.Builder;
 import lombok.Data;
+
+// 작성자 : 심세연
 
 @Data
 @Entity
