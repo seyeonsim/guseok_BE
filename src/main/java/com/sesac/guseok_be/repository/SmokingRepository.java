@@ -1,5 +1,7 @@
 package com.sesac.guseok_be.repository;
 
+//작성자: 윤정연;
+
 import com.sesac.guseok_be.domain.Smoking;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

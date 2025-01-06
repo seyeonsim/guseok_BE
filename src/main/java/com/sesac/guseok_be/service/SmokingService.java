@@ -1,16 +1,15 @@
 package com.sesac.guseok_be.service;
 
-import com.sesac.guseok_be.domain.NoSmoking;
+//작성자: 윤정연;
+
 import com.sesac.guseok_be.domain.Smoking;
 import com.sesac.guseok_be.domain.User;
 import com.sesac.guseok_be.entity.LikeEntity;
 import com.sesac.guseok_be.repository.LikeRepository;
-import com.sesac.guseok_be.repository.NoSmokingRepository;
 import com.sesac.guseok_be.repository.SmokingRepository;
 import com.sesac.guseok_be.repository.UserRepository;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
