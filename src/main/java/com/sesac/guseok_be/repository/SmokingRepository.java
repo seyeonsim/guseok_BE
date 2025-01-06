@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface SmokingRepository extends JpaRepository<Smoking, Number> {
+public interface SmokingRepository extends JpaRepository<Smoking, Long> {
 
     @Query("SELECT DISTINCT district FROM Smoking ORDER BY district ASC")
     List<String> findDistinctDistricts();
