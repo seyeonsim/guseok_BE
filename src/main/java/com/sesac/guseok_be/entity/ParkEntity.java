@@ -8,7 +8,7 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Entity // 작성자 : 박유현
 @Table(name = "PARK")
 @Getter
 @Setter

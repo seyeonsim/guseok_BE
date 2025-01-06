@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-@Table(name = "users")
+@Table(name = "users") // 작성자 : 박유현
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Setter

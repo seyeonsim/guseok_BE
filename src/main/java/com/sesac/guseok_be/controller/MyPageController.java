@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@RestController // 작성자 : 박유현
 @RequestMapping("/api/mypage")
 @RequiredArgsConstructor
 @Slf4j

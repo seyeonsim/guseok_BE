@@ -18,7 +18,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.cors.CorsConfigurationSource;
 
-@Configuration
+@Configuration // 작성자 : 박유현
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class WebSecurityConfig {

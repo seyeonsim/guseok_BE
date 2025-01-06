@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
 
-@RestController
+@RestController // 작성자 : 박유현
 @RequiredArgsConstructor
 @RequestMapping("/api")
 @Slf4j
