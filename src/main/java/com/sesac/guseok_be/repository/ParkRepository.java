@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface ParkRepository extends JpaRepository<ParkEntity, Long> {
     List<ParkEntity> findByDistrict(String district);
+    List<ParkEntity> findByLikedUsersId(Long userId);
 }

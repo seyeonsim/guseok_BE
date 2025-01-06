@@ -1,8 +1,12 @@
 package com.sesac.guseok_be.entity;
 
+import com.sesac.guseok_be.domain.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "PARK")
@@ -26,4 +30,6 @@ public class ParkEntity {
     private Double longitude;
     private Double latitude;
     private String link;
+    @ManyToMany(mappedBy = "likedParks")
+    private List<User> likedUsers = new ArrayList<>();
 }

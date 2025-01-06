@@ -49,16 +49,40 @@ public class JwtProvider {
     }
 
     // 토큰에서 사용자 이름(이메일) 추출
+//    public String getUsernameFromToken(String token) {
+//        return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody().getSubject();
+//    }
+
     public String getUsernameFromToken(String token) {
-        return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody().getSubject();
+        return Jwts.parserBuilder()
+                .setSigningKey(SECRET_KEY)
+                .build()
+                .parseClaimsJws(token)
+                .getBody()
+                .getSubject();
     }
+
+//    // 토큰 유효성 검증
+//    public boolean validateToken(String token) {
+//        try {
+//            Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token);
+//            return true;
+//        } catch (JwtException | IllegalArgumentException e) {
+//            System.out.println("토큰 검증 실패: " + e.getMessage());
+//            return false;
+//        }
+//    }
 
     // 토큰 유효성 검증
     public boolean validateToken(String token) {
         try {
-            Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token);
+            Jwts.parserBuilder()
+                    .setSigningKey(SECRET_KEY)
+                    .build()
+                    .parseClaimsJws(token); // Token validation
             return true;
         } catch (JwtException | IllegalArgumentException e) {
+            System.out.println("토큰 검증 실패: " + e.getMessage());
             return false;
         }
     }
@@ -67,7 +91,10 @@ public class JwtProvider {
     public String resolveToken(HttpServletRequest request) {
         String bearerToken = request.getHeader("Authorization");
         if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
-            return bearerToken.substring(7);
+//            return bearerToken.substring(7);
+            String token = bearerToken.substring(7);
+            System.out.println("받은 토큰: " + token);  // 토큰 로그 출력
+            return token;
         }
         return null;
     }
